@@ -1,4 +1,4 @@
-package io.github.luquinhas29.clientes.model;
+package io.github.luquinhas29.clientes.model.entity;
 
 import lombok.Data;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -19,7 +19,7 @@ public class Cliente {
     @Column(nullable = false, length = 11)
     private String cpf;
 
-    @Column
+    @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
 
 }
