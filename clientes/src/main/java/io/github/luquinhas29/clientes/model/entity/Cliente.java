@@ -1,6 +1,9 @@
 package io.github.luquinhas29.clientes.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -8,6 +11,9 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Cliente {
 
     @Id
@@ -21,5 +27,10 @@ public class Cliente {
 
     @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
+
+    @PrePersist
+    public void prePersist(){
+        setDataCadastro(LocalDate.now());
+    }
 
 }
